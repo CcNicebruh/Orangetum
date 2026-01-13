@@ -191,7 +191,7 @@ func shoot_projectile(damage, tex_path, force_dir = Vector2.ZERO, scale = Vector
 	
 	var p = Area2D.new()
 	var s = Sprite2D.new(); s.texture = load(tex_path); s.scale = scale; p.add_child(s)
-	p.texture_filter = CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+	p.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var c = CollisionShape2D.new(); c.shape = CircleShape2D.new(); c.shape.radius = 8; p.add_child(c)
 	p.global_position = global_position
 	p.set_meta("damage", damage); p.set_meta("speed", 500.0); p.add_to_group("projectile")
