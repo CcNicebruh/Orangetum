@@ -42,13 +42,12 @@ jobs:
       - name: Create export directory
         run: mkdir -p build/windows
 
-      - name: Import assets
-        run: |
-          xvfb-run ./Godot_v${GODOT_VERSION}-stable_linux.x86_64 --headless --import --quit
-
       - name: Export Windows build
         run: |
-          xvfb-run ./Godot_v${GODOT_VERSION}-stable_linux.x86_64 --headless --export-release "Windows Desktop" build/windows/${PROJECT_NAME}.exe
+          xvfb-run --auto-servernum --server-args="-screen 0 1024x768x24" \
+          ./Godot_v${GODOT_VERSION}-stable_linux.x86_64 --headless --export-release "Windows Desktop" build/windows/${PROJECT_NAME}.exe
+        env:
+          DISPLAY: :99
 
       - name: Zip Windows build
         run: |
