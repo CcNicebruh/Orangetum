@@ -1,0 +1,83 @@
+name: Godot 4 Build and Release
+
+on:
+  push:
+    branches:
+      - main  # Auto-build on every push to main
+      - master  # Or master branch
+  workflow_dispatch:  # Allows manual triggering
+
+permissions:
+  contents: write
+
+env:
+  GODOT_VERSION: 4.3
+  PROJECT_NAME: YourGameName  # Change this to your game name
+
+jobs:
+  build-windows:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup Godot
+        run: |
+          wget https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
+          unzip Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
+          chmod +x Godot_v${GODOT_VERSION}-stable_linux.x86_64
+          mkdir -p ~/.local/share/godot/export_templates
+          wget https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz
+          unzip Godot_v${GODOT_VERSION}-stable_export_templates.tpz
+          mv templates/* ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable/
+
+      - name: Create export directory
+        run: mkdir -p build/windows
+
+      - name: Export Windows build
+        run: |
+          ./Godot_v${GODOT_VERSION}-stable_linux.x86_64 --headless --export-release "Windows Desktop" build/windows/${PROJECT_NAME}.exe
+
+      - name: Zip Windows build
+        run: |
+          cd build/windows
+          zip -r ../${PROJECT_NAME}-windows.zip .
+          cd ../..
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-build
+          path: build/${{ env.PROJECT_NAME }}-windows.zip
+
+  create-release:
+    needs: build-windows
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-build
+
+      - name: Generate version tag
+        id: version
+        run: |
+          echo "tag=v$(date +'%Y.%m.%d')-build.${{ github.run_number }}" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Release ${{ steps.version.outputs.tag }}
+          files: ${{ env.PROJECT_NAME }}-windows.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          token: ${{ secrets.GITHUB_TOKEN }}
