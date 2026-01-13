@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://mkyxhagcrpj2"]
+
+[ext_resource type="Script" uid="uid://vxh2x3pa826v" path="res://script/diff_menu.gd" id="1_mqc7e"]
+[ext_resource type="Texture2D" uid="uid://ccdlj1aghnxpg" path="res://img/bg2.png" id="2_85v13"]
+
+[node name="DiffcultyMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mqc7e")
+
+[node name="BGImg" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.59999996)
+texture = ExtResource("2_85v13")
+
+[node name="GaneName" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 420.0
+offset_top = 143.0
+offset_right = 540.0
+offset_bottom = 166.0
+scale = Vector2(3.235, 3.235)
+text = "เลือกระดับ"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 323.0
+offset_right = 795.0
+offset_bottom = 424.0
+
+[node name="Easy" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "ง่าย"
+
+[node name="Normal" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "ปกติ"
+
+[node name="Hard" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "ยาก"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 16.0
+offset_right = 1121.0
+offset_bottom = 47.0
+scale = Vector2(1.375, 1.375)
+text = "X"

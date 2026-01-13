@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dybuytlsquifg"]
+
+[ext_resource type="Texture2D" uid="uid://b1p5hvi0ltcoq" path="res://img/playingbg.png" id="1_2m8gc"]
+[ext_resource type="Script" uid="uid://dmb7rg6532ju6" path="res://menu/EnemySpawner.gd" id="1_6aau4"]
+[ext_resource type="Script" uid="uid://s38q7xsfckmn" path="res://menu/MousePlayer.gd" id="2_i8nt4"]
+[ext_resource type="Texture2D" uid="uid://dw0o6c6egg26d" path="res://img/somtam.png" id="3_nlndx"]
+[ext_resource type="PackedScene" uid="uid://d3nay8ihomy5s" path="res://menu/Enemy.tscn" id="4_i8nt4"]
+
+[node name="Game" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("1_2m8gc")
+
+[node name="Player" type="Area2D" parent="."]
+script = ExtResource("2_i8nt4")
+cursor_texture = ExtResource("3_nlndx")
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("1_6aau4")
+enemy_scene = ExtResource("4_i8nt4")

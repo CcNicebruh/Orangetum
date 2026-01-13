@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://31xkymkelb4e"]
+
+[ext_resource type="Script" uid="uid://seswodty217v" path="res://script/home_menu.gd" id="1_tylmi"]
+[ext_resource type="Texture2D" uid="uid://ccdlj1aghnxpg" path="res://img/bg2.png" id="2_glxom"]
+[ext_resource type="Texture2D" uid="uid://bpkonko3nyckt" path="res://img/orange2.png" id="3_n16gg"]
+
+[node name="HomeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tylmi")
+
+[node name="BGImg" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.59999996)
+texture = ExtResource("2_glxom")
+
+[node name="Orange2" type="Sprite2D" parent="."]
+position = Vector2(564, 148)
+texture = ExtResource("3_n16gg")
+
+[node name="GaneName" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 597.0
+offset_top = 111.0
+offset_right = 631.83154
+offset_bottom = 134.0
+scale = Vector2(3.235, 3.235)
+text = "tam"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 345.0
+offset_right = 794.0
+offset_bottom = 416.0
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "เรื่มเล่น"
+
+[node name="Tutorial" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "วิธีเล่น"

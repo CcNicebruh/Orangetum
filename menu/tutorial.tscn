@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://wduqexit6y6v"]
+
+[ext_resource type="Script" uid="uid://7pe1sp5ojpe5" path="res://script/tutorial_menu.gd" id="1_3qfmw"]
+[ext_resource type="Texture2D" uid="uid://ccdlj1aghnxpg" path="res://img/bg2.png" id="1_deyc2"]
+[ext_resource type="Texture2D" uid="uid://dw0o6c6egg26d" path="res://img/somtam.png" id="3_lbret"]
+[ext_resource type="Texture2D" uid="uid://bpkonko3nyckt" path="res://img/orange2.png" id="4_roa77"]
+[ext_resource type="Texture2D" uid="uid://jk4s0741grpu" path="res://img/maled_malakor.png" id="5_latp5"]
+[ext_resource type="Texture2D" uid="uid://bgn613x3dg0r7" path="res://img/ma_kier_ted.png" id="6_3eb3s"]
+[ext_resource type="Texture2D" uid="uid://vgar5ntjnsqq" path="res://img/malakor.png" id="7_6eaah"]
+[ext_resource type="Texture2D" uid="uid://dt7p0lc6geqmk" path="res://img/mae_pra_nom.png" id="8_s0273"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3qfmw")
+
+[node name="BGImg" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.59999996)
+texture = ExtResource("1_deyc2")
+
+[node name="How to play and tutorial" type="Label" parent="."]
+layout_mode = 0
+offset_left = 424.99997
+offset_top = 33.999996
+offset_right = 594.0
+offset_bottom = 56.999996
+scale = Vector2(2.09, 2.09)
+text = "แนะนำตัวละครและวิธีเล่น"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 16.0
+offset_right = 1121.0
+offset_bottom = 47.0
+scale = Vector2(1.375, 1.375)
+text = "X"
+
+[node name="Somtam" type="Sprite2D" parent="."]
+position = Vector2(818.00006, 527)
+scale = Vector2(1.71875, 1.6875)
+texture = ExtResource("3_lbret")
+
+[node name="Orange2" type="Sprite2D" parent="."]
+position = Vector2(608, 370)
+texture = ExtResource("4_roa77")
+
+[node name="MaledMalakor" type="Sprite2D" parent="."]
+position = Vector2(738, 447)
+texture = ExtResource("5_latp5")
+
+[node name="teaching" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 690.0
+offset_top = 564.0
+offset_right = 858.0
+offset_bottom = 587.0
+scale = Vector2(1.5, 1.5)
+text = "คลิกเพี่อยิงมะเล็ดมะละกอ"
+
+[node name="teaching2" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 892.0
+offset_top = 220.00002
+offset_right = 1060.0
+offset_bottom = 243.00002
+scale = Vector2(1.5, 1.5)
+text = "กด W เพี่อยิงมะเขีอเทศ"
+
+[node name="teaching4" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 238.0
+offset_top = 465.0
+offset_right = 426.0
+offset_bottom = 540.0
+scale = Vector2(1.5, 1.5)
+text = "หากส้มเข้ามาใกล้เพี่อจะทำ
+Damage สามารถกด E เพี่อ
+ใช้แม่ประนอมป้องกันได้"
+
+[node name="teaching3" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 155.0
+offset_top = 173.0
+offset_right = 294.33334
+offset_bottom = 196.0
+scale = Vector2(1.5, 1.5)
+text = "กด Q เพี่อยิงมะละกอ"
+
+[node name="Somtam2" type="Sprite2D" parent="."]
+position = Vector2(840, 237)
+texture = ExtResource("3_lbret")
+
+[node name="Somtam3" type="Sprite2D" parent="."]
+position = Vector2(405, 225)
+texture = ExtResource("3_lbret")
+
+[node name="MaKierTed" type="Sprite2D" parent="."]
+position = Vector2(749, 284)
+texture = ExtResource("6_3eb3s")
+
+[node name="Malakor" type="Sprite2D" parent="."]
+position = Vector2(474, 274)
+texture = ExtResource("7_6eaah")
+
+[node name="MaePraNom" type="Sprite2D" parent="."]
+position = Vector2(549, 432)
+scale = Vector2(1.375, 1.40625)
+texture = ExtResource("8_s0273")
+
+[node name="Somtam4" type="Sprite2D" parent="."]
+position = Vector2(548, 437)
+texture = ExtResource("3_lbret")
