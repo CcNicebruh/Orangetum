@@ -11,8 +11,8 @@ permissions:
   contents: write
 
 env:
-  GODOT_VERSION: 4.3
-  PROJECT_NAME: YourGameName  # Change this to your game name
+  GODOT_VERSION: 4.5.1
+  PROJECT_NAME: Orangetum  # Change this to your game name
 
 jobs:
   build-windows:
