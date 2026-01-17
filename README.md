@@ -37,7 +37,7 @@
 ### ขั้นตอนเปิดร้าน
 1. **ฉกโค้ดมา:**
    ```bash
-   git clone https://github.com/yourusername/orangetam.git
+   git clone https://github.com/CcNicebruh/orangetam.git
    ```
 2. **เข้าครัว (Godot):**
    - เปิดโปรแกรม Godot แล้วกด "Import"
